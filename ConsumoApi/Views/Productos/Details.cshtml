@@ -1,0 +1,25 @@
+﻿@model ConsumoApi.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalles del Producto";
+}
+
+<div class="container mt-4">
+    <h2>Detalles del Producto</h2>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <h4>@Model.Nombre</h4>
+            <p><strong>Código:</strong> @Model.Codigo</p>
+            <p><strong>Marca:</strong> @Model.Marca</p>
+            <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
+            <p><strong>Stock:</strong> @Model.Stock</p>
+            <p><strong>Categoría:</strong> @Model.Categoria</p>
+            <p><strong>Estado:</strong> @(Model.Estado ? "Activo" : "Inactivo")</p>
+            <p><strong>Fecha de Registro:</strong> @Model.FechaRegistro.ToShortDateString()</p>
+        </div>
+    </div>
+
+    <a asp-action="Edit" asp-route-id="@Model.IdProducto" class="btn btn-warning mt-3">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Volver</a>
+</div>
